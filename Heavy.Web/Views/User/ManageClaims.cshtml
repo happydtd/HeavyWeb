@@ -1,0 +1,19 @@
+﻿@using Heavy.Web.ViewModels
+@model ManageClaimsViewModel
+
+@{
+    ViewData["Title"] = "ManageClaims";
+}
+
+<h1>ManageClaims</h1>
+
+<form asp-action="ManageClaims" method="post">
+    <input type="hidden" name="userId" value="@Model.UserId" />
+
+    <select asp-for="ClaimId" asp-items="@(new SelectList(Model.AllClaims))">
+        <option>select claim</option>
+    </select>
+
+    <button type="submit" class="btn btn-primary">add claim</button>
+    <a asp-action="EditUser" asp-route-id="@Model.UserId" class="btn btn-primary">return to user list</a>
+</form>

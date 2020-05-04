@@ -1,0 +1,12 @@
+﻿@using Heavy.Web.ViewModels
+@model UserRoleViewModel
+
+<form asp-action="AddUserToRole" method="post">
+    <input type="hidden" name="roleId" value="@Model.RoleId" />
+    <select class="form-control" asp-for="UserId"
+            asp-items="@(new SelectList(Model.Users,"Id", "UserName"))">
+        <option>please select a user</option>
+    </select>
+    <button class="btn btn-primary" type="submit">confirm</button>
+</form>
+
